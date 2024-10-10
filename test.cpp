@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
 
-  bool viz = false;
+  bool viz = true;
   std::string model_path = "../yolov5/model/yolov5s_relu_3588.rknn";
   std::string video_path = "../test.h264";
 
@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
   }
 
   GStreamerPipeline gst("filesrc location=" + video_path + " ! h264parse ! "
-                        "mppvideodec format=RGB ! queue max-size-buffers=0 leaky=0");
+                        "mppvideodec format=RGB");
 
   cv::Mat image;
   while (gst.read(image)) {

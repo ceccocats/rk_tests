@@ -32,7 +32,7 @@ public:
     appsink = gst_bin_get_by_name(GST_BIN(pipeline), "sink");
 
     // Configure the appsink to emit signals for each frame
-    g_object_set(appsink, "emit-signals", TRUE, "sync", FALSE, NULL);
+    g_object_set(appsink, "emit-signals", TRUE, "sync", TRUE, NULL);
 
     // Start playing the pipeline
     gst_element_set_state(pipeline, GST_STATE_PLAYING);
