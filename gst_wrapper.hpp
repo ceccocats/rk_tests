@@ -71,7 +71,7 @@ public:
       // Check if the format is BGR (compatible with OpenCV)
       if (strcmp(format, "BGR") == 0 || strcmp(format, "RGB") == 0) {
         // Create an OpenCV Mat from the raw data
-        image = cv::Mat(height, width, CV_8UC3, (void *)map.data);
+        image = cv::Mat(height, width, CV_8UC3, (void *)map.data).clone();
         read_ok = true;
       } else {
         std::cerr << "Unsupported frame format: " << format << std::endl;
